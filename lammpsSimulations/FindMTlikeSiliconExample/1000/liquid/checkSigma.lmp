@@ -1,0 +1,27 @@
+# Define some variables
+variable	temperature equal 1000.
+variable	tempDamp equal 0.1 # approx 0.1 ps
+variable	pressure equal 1.
+variable	pressureDamp equal 1.0
+variable	seed equal 74581
+
+# Setup
+units		metal
+atom_style	full
+
+read_data       data.final
+# More setup options
+variable	out_freq equal 500
+variable	out_freq2 equal 500
+neigh_modify    delay 10 every 1
+pair_style 	eam
+pair_coeff * * ../../Cu_u3.eam
+timestep	0.002
+thermo          ${out_freq}
+thermo_style 	custom step temp pe press lx
+
+fix             2 all plumed plumedfile plumed.dat outfile p.log
+fix             1 all npt iso ${pressure} ${pressure} ${pressureDamp} temp ${temperature} ${temperature} ${tempDamp}
+velocity        all create ${temperature} ${seed} dist gaussian
+
+run             50000

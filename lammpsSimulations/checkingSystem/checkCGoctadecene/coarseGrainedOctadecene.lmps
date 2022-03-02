@@ -1,0 +1,74 @@
+read using pysimm.system.read_mol https://pubs.acs.org/doi/10.1021/acs.jctc.5b00295   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6761742/#tbl1
+
+6 atoms
+5 bonds
+4 angles
+3 dihedrals
+
+3 atom types
+3 bond types
+2 angle types
+2 dihedral types
+
+-21.408100 21.256100 xlo xhi
+-11.089700 11.164300 ylo yhi
+-11.530100 11.063700 zlo zhi
+
+Masses
+
+   1	57.116 # CH3-CH2-CH2-CH2
+   2	42.081 # CH2-CH2-CH2
+   3    27.046 # CH=CH2
+
+Pair Coeffs
+
+   1	0.7753	5
+   2	0.5359	4.565
+   3    0.3821  4.14
+
+Bond Coeffs
+
+   1	500	4.1
+   2	500	3.58
+   3    500 3.03
+
+Angle Coeffs
+
+   1	11.488	153.8
+   2	14.068	157.1
+
+Dihedral Coeffs
+
+   1	0.1767 -1 1
+   2    0.1624 -1 1
+
+
+Atoms
+
+   1	1	3	0	9.91175	-0.2959	-0.27535
+   2	1	2	0	6.9697	0.2089	0.1354
+   3	1	2	0	3.2231	-0.0967	0.0965
+   4	1	2	0	-0.525	0.1863	0.0389
+   5	1	2	0	-4.2717	-0.1192	0.0001
+   6	1	1	0	-8.644	0.0148	-0.0608
+
+Bonds
+
+   1	3	1	2
+   2	2	2	3
+   3	2	3	4
+   4	2	4	5
+   5	1	5	6
+
+Angles
+
+   1	2	1	2	3
+   2	1	2	3	4
+   3	1	3	4	5
+   4	1	4	5	6
+
+Dihedrals
+
+   1	2	1	2	3   4
+   2	1	2	3	4   5
+   3	1	3	4	5   6

@@ -1,0 +1,33 @@
+# initialization
+
+units                   metal
+atom_style              atomic
+pair_style eam
+boundary                p p p
+
+# System definition
+
+lattice fcc 3.6258
+region                  myreg block 0 20 0 20 0 20
+create_box              1 myreg
+create_atoms            1 region myreg
+
+# Simulation settings
+
+pair_coeff * * Cu_u3.eam
+dump                    mydmp all atom 10000 dumpStructure600.lammpstrj
+
+compute	RDF all rdf 100
+fix		RDF_OUTPUT all ave/time 100 1 10000 c_RDF[*] file rdf_600.out mode vector
+compute         4 all xrd 1.54056 Cu 2Theta 10 80
+fix             4 all ave/histo/weight 1 1 10000 10 80 250 c_4[*] mode vector file Deg2Theta600.xrd
+# Run
+
+thermo_style custom step temp pe ke etotal press vol density
+
+velocity        all create 600 19478 dist gaussian mom yes rot yes
+fix                     mynpt all npt temp 600.0 600.0 0.1 iso 1 1 1.0
+timestep                0.001
+thermo                  10000
+
+run                     100000
