@@ -1,0 +1,21 @@
+
+ENVIRONMENTSIMILARITY ...
+ SPECIES=1-256
+ SIGMA=0.04
+ LATTICE_CONSTANTS=0.36258 # in nm
+ LABEL=es
+ MORE_THAN={RATIONAL R_0=0.5 NN=6 MM=12}
+ MEAN
+... ENVIRONMENTSIMILARITY
+
+METAD ...
+ ARG=es.morethan
+ SIGMA=1
+ HEIGHT=35 # in kJ/mol
+ PACE=500 # Every 500 steps is standard
+ BIASFACTOR=50 # A barrier of 50 kT will be reduced to 1 kT once the bias is converged
+ TEMP=1000 # Temperature in K
+ LABEL=metad
+... METAD
+
+PRINT STRIDE=500  ARG=* FILE=COLVAR
